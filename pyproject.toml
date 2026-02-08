@@ -44,4 +44,36 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP"]
-ignore = []
+ignore = ["E501"]
+
+[tool.ty]
+# ty type checker configuration
+
+[tool.ty.rules]
+unresolved-attribute = "ignore"
+invalid-argument-type = "ignore"
+unused-ignore-comment = "ignore"
+unresolved-import = "ignore"
+missing-argument = "ignore"
+unknown-argument = "ignore"
+possibly-missing-attribute = "ignore"
+not-iterable = "ignore"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+minversion = "8.0"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["src/gemini_connector"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
