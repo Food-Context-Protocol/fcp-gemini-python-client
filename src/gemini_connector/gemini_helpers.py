@@ -12,15 +12,17 @@ from tenacity import (
     wait_exponential,
 )
 
-from fcp.config import Config
-from fcp.services.gemini_constants import (
+from gemini_connector.config import Config
+from gemini_connector.gemini_constants import (
     COST_PER_INPUT_TOKEN,
     COST_PER_OUTPUT_TOKEN,
+    MAX_RETRIES,
     RETRYABLE_EXCEPTIONS,
+    RETRY_INITIAL_DELAY,
+    RETRY_MAX_DELAY,
     THINKING_BUDGETS,
 )
-from fcp.utils.json_extractor import extract_json
-from fcp.utils.metrics import record_gemini_usage
+from gemini_connector.utils import extract_json, record_gemini_usage
 
 logger = logging.getLogger(__name__)
 
@@ -45,11 +47,11 @@ def _create_retry_decorator():
     - Logs retry attempts at WARNING level
     """
     return retry(
-        stop=stop_after_attempt(Config.RETRY_MAX_ATTEMPTS),
+        stop=stop_after_attempt(MAX_RETRIES),
         wait=wait_exponential(
             multiplier=1,
-            min=Config.RETRY_MIN_WAIT_SECONDS,
-            max=Config.RETRY_MAX_WAIT_SECONDS,
+            min=RETRY_INITIAL_DELAY,
+            max=RETRY_MAX_DELAY,
         ),
         retry=retry_if_exception_type(RETRYABLE_EXCEPTIONS),
         before_sleep=before_sleep_log(logger, logging.WARNING),

@@ -6,7 +6,7 @@ from typing import Any
 
 from google.genai import types
 
-from fcp.config import Config
+from gemini_connector.config import Config
 
 
 class GeminiLiveMixin:

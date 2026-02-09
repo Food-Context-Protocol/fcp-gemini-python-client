@@ -12,12 +12,12 @@ from typing import Any
 from google import genai
 from google.genai import types
 
-from fcp.security import validate_image_url
-from fcp.services.gemini_async_ops import GeminiCacheMixin, GeminiDeepResearchMixin, GeminiVideoMixin
-from fcp.services.gemini_base import GeminiBase
-from fcp.services.gemini_constants import GEMINI_API_KEY, MAX_IMAGE_SIZE, MODEL_NAME
-from fcp.services.gemini_constants import RETRYABLE_EXCEPTIONS as _RETRYABLE_EXCEPTIONS
-from fcp.services.gemini_generation import (
+from gemini_connector.security import validate_image_url
+from gemini_connector.gemini_async_ops import GeminiCacheMixin, GeminiDeepResearchMixin, GeminiVideoMixin
+from gemini_connector.gemini_base import GeminiBase
+from gemini_connector.gemini_constants import GEMINI_API_KEY, MAX_IMAGE_SIZE, MODEL_NAME
+from gemini_connector.gemini_constants import RETRYABLE_EXCEPTIONS as _RETRYABLE_EXCEPTIONS
+from gemini_connector.gemini_generation import (
     GeminiCodeExecutionMixin,
     GeminiCombinedToolsMixin,
     GeminiGenerationMixin,
@@ -27,8 +27,8 @@ from fcp.services.gemini_generation import (
     GeminiThinkingMixin,
     GeminiToolingMixin,
 )
-from fcp.services.gemini_helpers import _create_retry_decorator as _create_retry_decorator_impl
-from fcp.services.gemini_helpers import (
+from gemini_connector.gemini_helpers import _create_retry_decorator as _create_retry_decorator_impl
+from gemini_connector.gemini_helpers import (
     _extract_grounding_sources,
     _extract_thinking_content,
     _get_thinking_budget,
@@ -36,7 +36,7 @@ from fcp.services.gemini_helpers import (
     _parse_json_response,
     gemini_retry,
 )
-from fcp.services.gemini_live import GeminiLiveMixin
+from gemini_connector.gemini_live import GeminiLiveMixin
 
 # Re-export constants/utilities for tests and callers that import from this module.
 RETRYABLE_EXCEPTIONS = _RETRYABLE_EXCEPTIONS

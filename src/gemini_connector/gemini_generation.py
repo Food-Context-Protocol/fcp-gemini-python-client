@@ -8,8 +8,8 @@ from typing import Any, cast
 
 from google.genai import types
 
-from fcp.services.gemini_constants import MODEL_NAME
-from fcp.services.gemini_helpers import _log_token_usage, _parse_json_response, gemini_retry
+from gemini_connector.gemini_constants import MODEL_NAME
+from gemini_connector.gemini_helpers import _log_token_usage, _parse_json_response, gemini_retry
 
 logger = logging.getLogger(__name__)
 
@@ -702,7 +702,7 @@ class GeminiCombinedToolsMixin:
         }
 
 
-from fcp.services.gemini_helpers import (  # noqa: E402
+from gemini_connector.gemini_helpers import (  # noqa: E402
     GeminiThinkingResult,
     _extract_grounding_sources,
     _extract_thinking_content,

@@ -10,9 +10,9 @@ from typing import Any
 from google.genai import errors as genai_errors
 from google.genai import types
 
-from fcp.config import Config
-from fcp.services.gemini_constants import MODEL_NAME
-from fcp.services.gemini_helpers import _log_token_usage, gemini_retry
+from gemini_connector.config import Config
+from gemini_connector.gemini_constants import MODEL_NAME
+from gemini_connector.gemini_helpers import _log_token_usage, gemini_retry
 
 logger = logging.getLogger(__name__)
 

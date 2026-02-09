@@ -9,11 +9,10 @@ import httpx
 from google import genai
 from google.genai import types
 
-from fcp.config import Config
-from fcp.security import ImageURLError
-from fcp.security.url_validator import validate_content_type
-from fcp.services.gemini_constants import MAX_IMAGE_SIZE
-from fcp.services.gemini_helpers import gemini_retry
+from gemini_connector.config import Config
+from gemini_connector.security import ImageURLError, validate_content_type
+from gemini_connector.gemini_constants import MAX_IMAGE_SIZE
+from gemini_connector.gemini_helpers import gemini_retry
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class GeminiBase:
     def __init__(self):
         import importlib
 
-        gemini_module = importlib.import_module("fcp.services.gemini")
+        gemini_module = importlib.import_module("gemini_connector.gemini")
         api_key = gemini_module.GEMINI_API_KEY
         self.client = genai.Client(api_key=api_key) if api_key else None
 
