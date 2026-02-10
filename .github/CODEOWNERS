@@ -1,0 +1,6 @@
+# Default owner for everything
+* @Food-Context-Protocol/maintainers
+
+# CI/CD and security-sensitive files
+.github/ @Food-Context-Protocol/security
+
