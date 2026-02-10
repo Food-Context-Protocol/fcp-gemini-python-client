@@ -12,14 +12,13 @@ from tenacity import (
     wait_exponential,
 )
 
-from fcp.gemini.config import Config
 from fcp.gemini.gemini_constants import (
     COST_PER_INPUT_TOKEN,
     COST_PER_OUTPUT_TOKEN,
     MAX_RETRIES,
-    RETRYABLE_EXCEPTIONS,
     RETRY_INITIAL_DELAY,
     RETRY_MAX_DELAY,
+    RETRYABLE_EXCEPTIONS,
     THINKING_BUDGETS,
 )
 from fcp.gemini.utils import extract_json, record_gemini_usage

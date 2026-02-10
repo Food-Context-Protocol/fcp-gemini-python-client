@@ -10,9 +10,9 @@ from google import genai
 from google.genai import types
 
 from fcp.gemini.config import Config
-from fcp.gemini.security import ImageURLError, validate_content_type
 from fcp.gemini.gemini_constants import MAX_IMAGE_SIZE
 from fcp.gemini.gemini_helpers import gemini_retry
+from fcp.gemini.security import ImageURLError, validate_content_type
 
 logger = logging.getLogger(__name__)
 

@@ -12,7 +12,6 @@ from typing import Any
 from google import genai
 from google.genai import types
 
-from fcp.gemini.security import validate_image_url
 from fcp.gemini.gemini_async_ops import GeminiCacheMixin, GeminiDeepResearchMixin, GeminiVideoMixin
 from fcp.gemini.gemini_base import GeminiBase
 from fcp.gemini.gemini_constants import GEMINI_API_KEY, MAX_IMAGE_SIZE, MODEL_NAME
@@ -37,6 +36,7 @@ from fcp.gemini.gemini_helpers import (
     gemini_retry,
 )
 from fcp.gemini.gemini_live import GeminiLiveMixin
+from fcp.gemini.security import validate_image_url
 
 # Re-export constants/utilities for tests and callers that import from this module.
 RETRYABLE_EXCEPTIONS = _RETRYABLE_EXCEPTIONS

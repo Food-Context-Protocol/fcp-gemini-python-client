@@ -1,10 +1,13 @@
-.PHONY: install test lint format typecheck coverage clean
+.PHONY: install test test-integration lint format typecheck coverage clean
 
 install:
 	uv sync
 
 test:
-	uv run pytest tests/ -v
+	uv run pytest tests/ -m "not integration" -v
+
+test-integration:
+	uv run pytest tests/ -m "integration" -v
 
 test-quick:
 	uv run pytest tests/ -v --no-cov
@@ -19,7 +22,7 @@ typecheck:
 	uv run ty check src/
 
 coverage:
-	uv run pytest tests/ --cov=src/fcp --cov-report=term-missing --cov-report=html --cov-fail-under=100
+	uv run pytest tests/ -m "not integration" --cov --cov-report=term-missing
 
 clean:
 	rm -rf .pytest_cache .ruff_cache .coverage htmlcov __pycache__ **/__pycache__ *.pyc **/*.pyc

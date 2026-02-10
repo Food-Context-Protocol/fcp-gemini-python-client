@@ -3,8 +3,9 @@
 All constants are defined locally with environment-based overrides.
 """
 
-import httpx
 import os
+
+import httpx
 
 # Model identifiers
 GEMINI_3_FLASH_PREVIEW = "gemini-3-flash-preview"
