@@ -58,3 +58,8 @@ Thumbs.db
 
 # uv
 .python-version
+
+# Environment files
+.env
+.env.*
+!.env.example
