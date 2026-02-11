@@ -63,3 +63,6 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Firebase debug logs (contain developer PII)
+firebase-debug.log
