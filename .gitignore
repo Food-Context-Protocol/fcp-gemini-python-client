@@ -58,3 +58,11 @@ Thumbs.db
 
 # uv
 .python-version
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Firebase debug logs (contain developer PII)
+firebase-debug.log
